@@ -46,77 +46,77 @@ CREATE TABLE `t_user` (
 
 ```java
 <!-- 自定义配置字段时通过build可以让springboot自动配置meta数据 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-configuration-processor</artifactId>
+</dependency>
 
-        <!-- redis + shiro-->
-        <dependency>
-            <groupId>org.crazycake</groupId>
-            <artifactId>shiro-redis-spring-boot-starter</artifactId>
-            <version>3.2.1</version>
-        </dependency>
-        <!-- hutool工具类-->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.3.3</version>
-        </dependency>
-        <!-- jwt -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-        <!--用于@Notblank等注解-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
+<!-- redis + shiro-->
+<dependency>
+    <groupId>org.crazycake</groupId>
+    <artifactId>shiro-redis-spring-boot-starter</artifactId>
+    <version>3.2.1</version>
+</dependency>
+<!-- hutool工具类-->
+<dependency>
+    <groupId>cn.hutool</groupId>
+    <artifactId>hutool-all</artifactId>
+    <version>5.3.3</version>
+</dependency>
+<!-- jwt -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.9.1</version>
+</dependency>
+<!--用于@Notblank等注解-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
 
-        <!--springboot-web开发-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.1</version>
-        </dependency>
-        <!--devtool工具-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <!--mysql连接-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <!--@Data等注解使用-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!--springboot-test使用-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--springboot-web开发-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<!--mybatis-plus-->
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.5.1</version>
+</dependency>
+<!--devtool工具-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <scope>runtime</scope>
+    <optional>true</optional>
+</dependency>
+<!--mysql连接-->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <scope>runtime</scope>
+</dependency>
+<!--@Data等注解使用-->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+<!--springboot-test使用-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
 ```
 
 ### 编辑application.yaml
@@ -1176,15 +1176,19 @@ nohup serve -p 8081  &
 ![](./preview-cut/1.png)
 
 2. 登录成功界面
+
 ![](./preview-cut/2.png)
 
 3. admin2访问成功admin-index
+
 ![](./preview-cut/3.png)
 
 4. admin1访问失败student
+
 ![](./preview-cut/4.png)
 
 5. admin1访问失败admin-edit
+
 ![](./preview-cut/5.png)
 
 ## 总结

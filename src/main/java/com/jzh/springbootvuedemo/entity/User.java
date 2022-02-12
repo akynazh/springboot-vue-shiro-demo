@@ -36,3 +36,15 @@ public class User implements Serializable {
     private String userRole;
     private String userPermission;
 }
+
+/*
+CREATE TABLE `t_user` (
+  `userId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(255) NOT NULL,
+  `userPassword` varchar(255) NOT NULL,
+  `userEmail` varchar(255) NOT NULL,
+  `userRole` varchar(255) NOT NULL,
+  `userPermission` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+ */

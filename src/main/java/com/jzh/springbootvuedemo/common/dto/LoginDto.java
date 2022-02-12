@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 /**
  * @version 1.0
- * @description
+ * @description 前端表单类
  * @Author Jiang Zhihang
  * @Date 2022/2/5 20:43
  */

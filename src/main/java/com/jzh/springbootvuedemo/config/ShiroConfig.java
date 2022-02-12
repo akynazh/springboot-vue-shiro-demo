@@ -74,7 +74,6 @@ public class ShiroConfig {
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         chainDefinition.addPathDefinition("/**", "jwt");
-        chainDefinition.addPathDefinition("/401", "anon");
         chainDefinition.addPathDefinition("/static/**", "anon");
         return chainDefinition;
     }

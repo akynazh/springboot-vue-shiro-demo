@@ -16,6 +16,7 @@
     </properties>
 
     <dependencies>
+        <!-- 自定义配置字段时通过build可以让springboot自动配置meta数据 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

@@ -1,31 +1,24 @@
 package com.jzh.springbootvuedemo.security;
 
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.jzh.springbootvuedemo.entity.User;
 import com.jzh.springbootvuedemo.service.UserService;
 import com.jzh.springbootvuedemo.utility.JwtUtils;
 import io.jsonwebtoken.Claims;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.subject.SimplePrincipalCollection;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @version 1.0
- * @description 用于向数据库查询验证账户
+ * @description 用于向数据库查询验证账户以及权限校验信息的注册
  * @Author Jiang Zhihang
  * @Date 2022/2/4 23:21
  */

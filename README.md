@@ -4,7 +4,7 @@
 
 SpringBoot整合Vue的一个Demo，同时后端整合了Shiro+Jwt+Redis的安全框架。
 
-通过一个demo进一步了解了前后端分离的架构思想以及安全框架shiro的运行机制
+通过一个demo进一步了解了前后端分离的架构思想以及安全框架shiro的运行机制。
 
 ## 后端开发
 
@@ -302,7 +302,7 @@ public class JwtUtils {
 
 ### 创建JwtToken类
 
-JwtToken继承于Shiro包下的AuthenticationToken，用于Shiro认证
+JwtToken继承于Shiro包下的AuthenticationToken，用于Shiro认证。
 
 ```java
 /**
@@ -332,7 +332,7 @@ public class JwtToken implements AuthenticationToken {
 
 ### 创建AccountProfile类
 
-用于Shiro认证存储的对象
+用于Shiro认证存储的对象。
 
 ```java
 /**
@@ -358,7 +358,7 @@ public class AccountProfile implements Serializable {
 
 ### 创建AccountRealm类
 
-用于向数据库查询验证账户以及权限校验信息的注册
+用于向数据库查询验证账户以及权限校验信息的注册。
 
 ```java
 /**
@@ -433,15 +433,15 @@ public class AccountRealm extends AuthorizingRealm {
 
 过滤流程：
 
-1. 首先经过prehandle，用于支持跨域请求
+1. 首先经过prehandle，用于支持跨域请求。
 
-2. 接着经过onAccessDenied，拦截请求Header中是否有auth字段并进行对应操作
+2. 接着经过onAccessDenied，拦截请求Header中是否有auth字段并进行对应操作。
 
-3. 如果没有token，则直接通过，后续通过@RequiresAuthentication等进行拦截
+3. 如果没有token，则直接通过，后续通过@RequiresAuthentication等进行拦截。
 
-4. 如果有token，则校验token失效，如果失效则通过失败执行onLoginFailure
+4. 如果有token，则校验token失效，如果失效则通过失败执行onLoginFailure。
 
-5. 如果token未失效，则通过Shiro进行登录认证以及可选的权限校验
+5. 如果token未失效，则通过Shiro进行登录认证以及可选的权限校验。
 
 ```java
 /**
@@ -570,11 +570,11 @@ public class JwtFilter extends AuthenticatingFilter {
 
 1. 配置SessionManager
 
-注入RedisSessionDAO，session管理员集成redis
+注入RedisSessionDAO，session管理员集成redis。
 
 2. 配置DefaultWebSecurityManager
 
-注入AccountRealm， SessionManager，RedisCacheManager
+注入AccountRealm， SessionManager，RedisCacheManager。
 
 其中必须记得要设置主键名称，shiro-redis 插件用过这个缓存用户信息：
 
@@ -592,7 +592,7 @@ redisCacheManager.setPrincipalIdFieldName("email");
 
 4. 配置ShiroFilterFactoryBean
 
-shiro工厂bean，设置安全管理员和jwt过滤器
+shiro工厂bean，设置安全管理员和jwt过滤器。
 
 ```java
 /**
@@ -741,7 +741,7 @@ public class RestfulResponse implements Serializable {
 
 ### 新建全局异常处理类
 
-全局处理异常，方便异常消息的捕获和向前端反馈信息
+全局处理异常，方便异常消息的捕获和向前端反馈信息。
 
 ```java
 /**
@@ -814,11 +814,11 @@ public class LoginDto implements Serializable {
 
 注：
 
-1. @RequiresAuthentication代表通过过滤器后需要进一步进行认证
+1. @RequiresAuthentication代表通过过滤器后需要进一步进行认证。
 
-2. @RequiresRoles("admin")代表需要有admin对象才可进行访问
+2. @RequiresRoles("admin")代表需要有admin对象才可进行访问。
 
-3. @RequiresPermissions(logical = Logical.AND, value = {"view", "edit"})代表必须同时拥有view和edit两个权限可访问
+3. @RequiresPermissions(logical = Logical.AND, value = {"view", "edit"})代表必须同时拥有view和edit两个权限可访问。
 
 4. 对于退出登录操作的解释：
 
@@ -957,7 +957,7 @@ public class UserController {
 
 ### 运行项目
 
-运行在8080端口，后续的前端项目则运行在8081端口
+运行在8080端口，后续的前端项目则运行在8081端口。
 
 ### 通过Postman调试
 
@@ -976,7 +976,7 @@ public class UserController {
 
 ### 新建项目，导入依赖
 
-通过```vue ui```快速新建项目，完成后通过```npm install```导入axios，element等组件
+通过```vue ui```快速新建项目，完成后通过```npm install```导入axios，element等组件。
 
 ### 创建页面和组件
 
@@ -994,7 +994,7 @@ public class UserController {
 
 src/router/index.js
 
-meta.auth数据用于判断进入页面是否需要认证
+meta.auth数据用于判断进入页面是否需要认证。
 
 ```js
 import Vue from 'vue'
@@ -1031,7 +1031,7 @@ export default router
 
 ### 配置store
 
-更方便地更新和存储数据
+更方便地更新和存储数据。
 
 src/store/index.js
 
@@ -1072,9 +1072,9 @@ export default new Vuex.Store({
 
 ### 定义axios拦截器
 
-1. 由于前后端分离，项目部署在不同端口上，所以设置所有axios访问后端的baseURL为后端的地址
+1. 由于前后端分离，项目部署在不同端口上，所以设置所有axios访问后端的baseURL为后端的地址。
 
-2. 所有axios请求结果都先通过一个方法拦截判断成功与否，失败则reject终止并反馈信息，成功则resolve并放行，减少了许多代码量
+2. 所有axios请求结果都先通过一个方法拦截判断成功与否，失败则reject终止并反馈信息，成功则resolve并放行，减少了许多代码量。
 
 src/main.js
 
@@ -1105,9 +1105,9 @@ axios.interceptors.response.use(
 
 ### 定义router拦截器
 
-前后端分离，前端则必须定义自己路由的拦截器，实现资源的合理控制
+前后端分离，前端则必须定义自己路由的拦截器，实现资源的合理控制。
 
-通过src/router/index.js中meta下的字段即可进行合理的操控了，比如通过auth真假与否决定一个访问静态页面资源是否需要认证
+通过src/router/index.js中meta下的字段即可进行合理的操控了，比如通过auth真假与否决定一个访问静态页面资源是否需要认证。
 
 ```js
 // router前置拦截
@@ -1133,7 +1133,7 @@ router.beforeEach((to, from, next) => {
 
 ### 部署调试
 
-通过```npm run serve```即可进行预览
+通过```npm run serve```即可进行预览。
 
 可在vue.config.js中配置预览端口地址：
 
@@ -1147,15 +1147,15 @@ module.exports = {
 
 ### 正式部署
 
-1. 通过```npm run build```部署并在dist中
+1. 通过```npm run build```部署并在dist中。
 
-2. 接着安装serve
+2. 接着安装serve。
 
 ```
 npm install -g serve
 ```
 
-3. 将dist中项目部署在8081端口
+3. 将dist中项目部署在8081端口。
 
 暂时部署：
 ```

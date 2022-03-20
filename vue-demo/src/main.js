@@ -17,14 +17,18 @@ Vue.use(axios)
 axios.defaults.baseURL = "http://localhost:8080"
 axios.interceptors.response.use(
     response => {
-        if (response.status === 200) {
-            console.log(response.data)
+        console.log(response.data)
+        if (response.data.code === 200) { // 成功返回结果
             return Promise.resolve(response)
-        } else {
+        } else { // 返回结果失败
+            Message.error({
+                message: response.data.message,
+                duration: 1500
+            })
             return Promise.reject(response)
         }
     },
-    error => {
+    error => { // 后台发生异常
         let response = error.response
         Message.error({
             message: response.data.message,

@@ -754,14 +754,12 @@ public class RestfulResponse implements Serializable {
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(ShiroException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public RestfulResponse handler(ShiroException e) {
         log.error("身份验证异常: {}", e.getMessage());
         return RestfulResponse.fail(401, e.getMessage());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RestfulResponse handler(MethodArgumentNotValidException e) {
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
         StringBuilder sb = new StringBuilder();
@@ -773,14 +771,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RestfulResponse handler(RuntimeException e) {
         log.error("运行时异常: {}", e.getMessage());
         return RestfulResponse.fail(400, e.getMessage());
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public RestfulResponse handler(IllegalArgumentException e) {
         log.error("Assert异常: {}", e.getMessage());
         return RestfulResponse.fail(400, e.getMessage());

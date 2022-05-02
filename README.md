@@ -1,4 +1,4 @@
-# Spring-Vue-Demo
+# SpringBoot-Vue-Demo
 
 ## 前言
 
@@ -44,80 +44,7 @@ CREATE TABLE `t_user` (
 
 ### 新建springboot项目并引入依赖
 
-```java
-<!-- 自定义配置字段时通过build可以让springboot自动配置meta数据 -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-configuration-processor</artifactId>
-</dependency>
-
-<!-- redis + shiro-->
-<dependency>
-    <groupId>org.crazycake</groupId>
-    <artifactId>shiro-redis-spring-boot-starter</artifactId>
-    <version>3.2.1</version>
-</dependency>
-<!-- hutool工具类-->
-<dependency>
-    <groupId>cn.hutool</groupId>
-    <artifactId>hutool-all</artifactId>
-    <version>5.3.3</version>
-</dependency>
-<!-- jwt -->
-<dependency>
-    <groupId>io.jsonwebtoken</groupId>
-    <artifactId>jjwt</artifactId>
-    <version>0.9.1</version>
-</dependency>
-<!--用于@Notblank等注解-->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-validation</artifactId>
-</dependency>
-
-<!--springboot-web开发-->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<!--mybatis-plus-->
-<dependency>
-    <groupId>com.baomidou</groupId>
-    <artifactId>mybatis-plus-boot-starter</artifactId>
-    <version>3.5.1</version>
-</dependency>
-<!--devtool工具-->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-devtools</artifactId>
-    <scope>runtime</scope>
-    <optional>true</optional>
-</dependency>
-<!--mysql连接-->
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <scope>runtime</scope>
-</dependency>
-<!--@Data等注解使用-->
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <optional>true</optional>
-</dependency>
-<!--springboot-test使用-->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <scope>test</scope>
-    <exclusions>
-        <exclusion>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-```
+具体详见项目文件。
 
 ### 编辑application.yaml
 
@@ -193,7 +120,7 @@ public interface UserMapper extends BaseMapper<User> {
 }
 ```
 
-### 创建Mybatis配置类
+### 创建MybatisPlus配置类
 
 添加mapper扫描路径以及开启事务
 
@@ -564,6 +491,7 @@ public class JwtFilter extends AuthenticatingFilter {
     }
 }
 ```
+
 ### 创建Shiro配置类
 
 这里通过@Bean，外部可以import我们自己配置的东西。
